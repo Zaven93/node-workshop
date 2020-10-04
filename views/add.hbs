@@ -1,0 +1,28 @@
+<h1>Add new course</h1>
+
+{{#if error}}
+  <p class="alert">{{error}}</p>
+{{/if}}
+
+
+<form action="/add" method="POST" class="form" novalidate>
+        <div class="input-field">
+          <input placeholder="Name" name="title" id="coures_name" type="text" class="validate" required value="{{data.title}}">
+          <label for="course_name">Course name</label>
+          <span class="helper-text" data-error="Please fill in the name"></span>
+        </div>
+
+        <div class="input-field">
+          <input placeholder="Price" name="price" id="course_price" type="number" class="validate" required min="1" value="{{data.price}}">
+          <label for="coures_price">Coure price</label>
+          <span class="helper-text" data-error="Please fill in the price"></span>
+        </div>
+
+        <div class="input-field">
+          <input placeholder="URL" name="img" id="course_image" type="text" class="validate" required value="{{data.img}}">
+          <label for="course_image">Course URL</label>
+          <span class="helper-text" data-error="Please fill in the URL"></span>
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button class="btn btn-primary">Add Course</button>
+</form>
